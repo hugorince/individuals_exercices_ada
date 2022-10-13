@@ -1,15 +1,15 @@
 function ask(){
 
-    var name = prompt("Quel est votre nom?")
+    var name = prompt("What is your name?")
 
     document.getElementById("answer").innerHTML =
-            "👋 Bonjour " + name;
+            "👋 Hey " + name;
    
 }
 
 function age(){
     
-    var birth = prompt("Quelle est ton année de naissance?")
+    var birth = prompt("What year were you born?")
     console.log(birth)
 
     var year = new Date().getFullYear()
@@ -18,22 +18,67 @@ function age(){
     var age = year - birth
     console.log(age)
 
-    var month = prompt("Merci, quel est le numéro de ton mois de naissance svp?")
+    var month = prompt("Thanks, which month was it?")
     console.log(month)
 
+    if (month == "january") {
+        var month = 1
+    }
+    else if (month == "february") {
+        var month = 2
+    }
+    else if (month == "march") {
+        var month = 3
+    }
+    else if (month == "april") {
+        var month = 4
+    }
+    else if (month == "may") {
+        var month = 5
+    }
+    else if (month == "june") {
+        var month = 6
+    }
+    else if (month == "july") {
+        var month = 7
+    }
+    else if (month == "august") {
+        var month = 8
+    }
+    else if (month == "september") {
+        var month = 9
+    }
+    else if (month == "october") {
+        var month = 10
+    }
+    else if (month == "november") {
+        var month = 11
+    }
+    else if (month == "december") {
+        var month = 12
+    }
+    else {
+        document.getElementById("answer2").innerHTML = "There is a typo in the month you have written, please try again"
+    }
+    
+    console.log(month)
+    
     var currentmonth = new Date().getMonth()
+    console.log(currentmonth)
+
+    currentmonth += + 1
     console.log(currentmonth)
 
     var lowage = age - 1
 
     if (month <= currentmonth) {
         document.getElementById("answer2").innerHTML =
-            "Tu as " + age + " ans 😇";
+            "You are " + age + " years old 😇";
             }
-        else {
+        
+            if (month >= currentmonth) {
             document.getElementById("answer2").innerHTML =
-            "Tu as " + lowage + " ans 😇";
+            "Your are " + lowage + " years old 😇";
         }
 
 }
-
