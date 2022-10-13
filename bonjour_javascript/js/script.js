@@ -1,13 +1,24 @@
-function ask(){
+function askName(){
 
     var name = prompt("What is your name?")
 
-    document.getElementById("answer").innerHTML =
+    if (name === "") {
+        document.getElementById("answer").innerHTML =
+            "I didn't catch it, please try again";
+    }
+
+    else if (name) {
+        document.getElementById("answer").innerHTML =
             "👋 Hey " + name;
-   
+    }
+
+    else {
+        document.getElementById("answer").innerHTML =
+        ""
+    }
 }
 
-function age(){
+function askAge(){
     
     var birth = prompt("What year were you born?")
     console.log(birth)
