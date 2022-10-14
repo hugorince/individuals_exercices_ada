@@ -32,6 +32,9 @@ function askAge(){
     var month = prompt("Thanks, which month was it?")
     console.log(month)
 
+    var day = prompt("Can you tell me the day?")
+    console.log(day)
+
     if (month == "january") {
         var month = 1
     }
@@ -80,16 +83,36 @@ function askAge(){
     currentmonth += + 1
     console.log(currentmonth)
 
+    var currentday = new Date().getDate()
+    console.log(currentday)
+
     var lowage = age - 1
 
-    if (month <= currentmonth) {
-        document.getElementById("answer2").innerHTML =
-            "You are " + age + " years old 😇";
-            }
-        
-            if (month >= currentmonth) {
-            document.getElementById("answer2").innerHTML =
-            "Your are " + lowage + " years old 😇";
-        }
+            if (month < currentmonth) {
+                document.getElementById("answer2").innerHTML =
+                    "You are " + age + " years old 😇";
+                    }
+                
+                    if (month > currentmonth) {
+                    document.getElementById("answer2").innerHTML =
+                    "Your are " + lowage + " years old 😇";
+                    }
 
-}
+                    if (month == currentmonth) {
+                        if (day < currentday) {
+                            document.getElementById("answer2").innerHTML =
+                    "You just turned " + age + " 😇";
+                        }
+                        if (day == currentday) {
+                            document.getElementById("answer2").innerHTML =
+                    "🎉 HAPPY BIRTHDAY You are " + age + " years old 😇";
+                        }
+
+                        if (day > currentday) {
+                            document.getElementById("answer2").innerHTML =
+                    "It's your birthday soon ! Your are " + lowage + " years old 😇";
+                        }
+
+                    }
+
+ }
