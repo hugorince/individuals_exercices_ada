@@ -29,7 +29,7 @@ function askAge(){
     var age = year - birth
     console.log(age)
 
-    var month = prompt("Thanks, which month was it?")
+    var month = prompt("Thanks, which month was it?").toLowerCase();
     console.log(month)
 
     var day = prompt("Can you tell me the day?")
