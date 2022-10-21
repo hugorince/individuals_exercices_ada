@@ -1,0 +1,80 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2638
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 AppleColorEmoji;\f2\fnil\fcharset0 Menlo-Regular;
+}
+{\colortbl;\red255\green255\blue255;\red202\green202\blue202;}
+{\*\expandedcolortbl;;\cssrgb\c83137\c83137\c83137;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 # 1. Enonc\'e9\
+\
+Le but de cet exercice individuel est de faire un petit jeu en JS qui permet de deviner un nombre.\
+\
+Nous avons d\'e9coup\'e9 l\'92exercice en \'e9tapes, il faut donc les suivre pour arriver au bout. Ces \'e9tapes sont aussi l\'e0 pour vous proposer un d\'e9coupage d\'92un projet en taches plus simples \'e0 r\'e9aliser. Chaque \'e9tape est une mini version du jeu que l\'92on va incr\'e9menter.\
+\
+Le but n\'92\'e9tant pas forcement de tout faire mais d\'92essayer d\'92aller le plus loin, chacun peut aller \'e0 son rythme, ce n\'92est pas une comp\'e9tition 
+\f1 \uc0\u55357 \u56842 
+\f0 .\
+\
+Un compilateur en ligne comme [celui-ci](https://js.do/) est suffisant. (Pour y voir la console il faut Inspecter>Console). Mais vous pouvez cr\'e9er votre propre page html incluant votre js ou vous pouvez partir du template HTML+CSS+JS pour cet exercice.\
+\
+*Contraintes:* \
+\
+- Langage : JS\
+- Suivre les \'e9tapes\
+- Une fonctionnalit\'e9 = une fonction\
+\
+## \'c9tape 1\
+\
+- Cr\'e9er une fonction qui demande \'e0 l\'92utilisateur \'e0 l\'92aide d\'92un prompteur, un nombre. (Attention tous les compilateur en ligne ne permettent pas la prise d\'92input, prendre celui dans l\'92\'e9nonc\'e9 si besoin).\
+- Stocker sa r\'e9ponse dans une variable de type ad\'e9quate nomm\'e9e `givenNumber`.\
+\
+## \'c9tape 2\
+\
+Pour le moment nous allons consid\'e9rer que le nombre \'e0 deviner est 22.\
+\
+- \'c9crire une fonction qui prend en param\'e8tre `givenNumber` et qui se nommera `didIWin`.\
+    - Si le nombre est plus petit que 22, on affichera \'e0 l\'92utilisateur *\'93Plus grand\'94*.\
+    - Si le nombre est plus quand que 22 on affichera \'e0 l\'92utilisateur *\'93Plus petit\'94*.\
+    - Si le nombre est 22 on affichera *\'93Bravo ! Vous avez devin\'e9 le nombre\'94.*\
+    \
+    L\'92ordre dans lequel vous ferez vos conditions est importante, le but est d\'92executer le moins de code possible. Demandez-vous ce qu\'92il faut v\'e9rifier en premier.\
+    \
+    
+\f1 \uc0\u9888 \u65039 
+\f0 \'a0Attention : le `prompt()` bloque l\'92ex\'e9cution de la page de la page et stop l\'92affichage du rendu. Pour afficher des informations \'e0 la suite d\'92un `prompt()`, utilisez `alert()`.\
+    \
+- Cr\'e9er une fonction `gamePlay` qui g\'e9rera vos appels de fonctions et la transmission de votre variable d\'92une fonction \'e0 une autre.\
+\
+## \'c9tape 3\
+\
+- D\'e9sormais la fonction `didIWin` devra retourner true si l\'92utilisateur a trouv\'e9 le chiffre, false sinon.\
+- Dans la fonction `gamePlay`, si `didIWin` a retourn\'e9 true, on arrete le jeu. En revanche, si elle a retourn\'e9 false, on redemande un chiffre \'e0 l\'92utilisateur.\
+\
+## \'c9tape **4**\
+\
+Maintenant on va consid\'e9rer que l\'92on a pas un seul joueur mais 2 
+\f1 \uc0\u55358 \u56785 \u8205 \u55358 \u56605 \u8205 \u55358 \u56785 
+\f0 .\
+\
+- Cr\'e9er une fonction qui demande au joueur 1 de fournir un nombre \'e0 deviner compris entre 0 et 50 tant qu\'92il ne respecte pas ce range.\
+- La fonction `didIWin` doit prendre d\'e9sormais un autre param\'e8tre, le nombre \'e0 diviner.\
+- Reprenez la logique 1,2 et 3 pour g\'e9rer la partie et lui indiquer s\'92il doit continuer \'e0 jouer ou s\'92il a gagn\'e9.\
+\
+## \'c9tape **5**\
+\
+- Afficher le range (0-50) auquel notre utilisateur \'e0 le droit autour du champs. Quelque chose comme 0 < ? < 50.\
+- Si l\'92utilisateur a gagn\'e9 nous effacerons tout pour afficher notre message de bravo !\
+- En revanche, tant que l\'92utilisateur n\'92a pas trouv\'e9 le bon chiffre, on affichera le nombre de tentatives en cours sur la partie.\
+- Ajouter un champs input qui permet \'e0 l\'92utilisateur de rentrer sa proposition de nombre directement dans un champs sur la page avec un bouton valider.\
+\
+## \'c9tape **6**\
+\
+Si le nombre propos\'e9 par l\'92utilisateur est plus petit que le nombre \'e0 deviner, alors vous changerez le range minimal. Ce ne sera plus 10 mais le dernier nombre propos\'e9. Attention si le nombre propos\'e9 est en dessous du range minimal, cela ne sert \'e0 rien de le changer.\
+\
+Ex : 12 < ? < 45, si le nombre propos\'e9 est 10, on ne change pas le range. Mais on peut afficher une alert pour indiquer que le nombre propos\'e9 n\'92est pas dans le range.\
+\
+M\'eame chose si le nombre est sup\'e9rieur.
+\f2 \cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 \
+}
