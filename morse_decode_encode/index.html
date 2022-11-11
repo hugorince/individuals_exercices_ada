@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>My web page</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+
+        <h1>Welcome to Encode/Decode</h1>
+        <p>To translate morse to latin use the Decode button</p>
+        <p>To translate latin to morse use the Encode button</p>
+        <input type="text" id="text"></input>
+        <button onclick="encode(document.getElementById('text').value)">Encode</button >
+        <button  onclick="decode(document.getElementById('text').value)">Decode</button >
+        <h2>Result :</h2>
+        <p id="result"></p>
+
+        <script src="js/script.js"></script>
+    </body>
+</html>
