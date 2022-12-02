@@ -62,12 +62,12 @@ def continueOrStop(arr, arr2):
     if win(arr, arr2) == True:
         print('Bravo!')
         resultLabel = Label(root, text='You WOn!!')
-        resultLabel.pack()
+        resultLabel.grid(row=7, column=4)
 
     else:
         # print('Try Again')
         resultLabel = Label(root, text=answer(arr, arr2))
-        resultLabel.pack()
+        resultLabel.grid(row=7, column=4)
         guess.clear()
 
 
@@ -84,15 +84,16 @@ list3 = randomGuess(listAll)
 print(list3)
 
 myLabel = Label(root, text="Welcome to MASTERMIND")
-myLabel.pack()
+myLabel.grid(row=0, column=4)
 
 
 def chooseColorRed():
     if (len(guess) < 4):
         guess.append('Red')
         print(guess)
-        guessLabel = Label(root, text=guess)
-        guessLabel.pack()
+        if len(guess) == 4:
+            guessLabel = Label(root, text=guess)
+            guessLabel.grid(row=3, column=4)
     else:
         return False
 
@@ -100,8 +101,9 @@ def chooseColorRed():
 def chooseColorYellow():
     if (len(guess) < 4):
         guess.append('Yellow')
-        guessLabel = Label(root, text=guess)
-        guessLabel.pack()
+        if len(guess) == 4:
+            guessLabel = Label(root, text=guess)
+            guessLabel.grid(row=3, column=4)
     else:
         return False
 
@@ -109,8 +111,9 @@ def chooseColorYellow():
 def chooseColorBlue():
     if (len(guess) < 4):
         guess.append('Blue')
-        guessLabel = Label(root, text=guess)
-        guessLabel.pack()
+        if len(guess) == 4:
+            guessLabel = Label(root, text=guess)
+            guessLabel.grid(row=3, column=4)
     else:
         return False
 
@@ -119,8 +122,9 @@ def chooseColorPink():
     if (len(guess) < 4):
         guess.append('Pink')
         print(guess)
-        guessLabel = Label(root, text=guess)
-        guessLabel.pack()
+        if len(guess) == 4:
+            guessLabel = Label(root, text=guess)
+            guessLabel.grid(row=3, column=4)
     else:
         return False
 
@@ -129,8 +133,9 @@ def chooseColorBrown():
     if (len(guess) < 4):
         guess.append('Brown')
         print(guess)
-        guessLabel = Label(root, text=guess)
-        guessLabel.pack()
+        if len(guess) == 4:
+            guessLabel = Label(root, text=guess)
+            guessLabel.grid(row=3, column=4)
     else:
         return False
 
@@ -139,8 +144,9 @@ def chooseColorOrange():
     if (len(guess) < 4):
         guess.append('Orange')
         print(guess)
-        guessLabel = Label(root, text=guess)
-        guessLabel.pack()
+        if len(guess) == 4:
+            guessLabel = Label(root, text=guess)
+            guessLabel.grid(row=3, column=4)
     else:
         return False
 
@@ -149,8 +155,9 @@ def chooseColorGreen():
     if (len(guess) < 4):
         guess.append('Green')
         print(guess)
-        guessLabel = Label(root, text=guess)
-        guessLabel.pack()
+        if len(guess) == 4:
+            guessLabel = Label(root, text=guess)
+            guessLabel.grid(row=3, column=4)
     else:
         return False
 
@@ -159,44 +166,46 @@ def chooseColorPurple():
     if (len(guess) < 4):
         guess.append('Purple')
         print(guess)
-        guessLabel = Label(root, text=guess)
-        guessLabel.pack()
+        if len(guess) == 4:
+            guessLabel = Label(root, text=guess)
+            guessLabel.grid(row=3, column=4)
     else:
         return False
 
 
 def buttonClear():
     guess.clear()
-    guessLabel = Label(root, text=guess)
-    guessLabel.pack()
 
 
 def tryFunc():
     hintLabel = Label(root, text=continueOrStop(guess, list3))
-    hintLabel.pack()
+    hintLabel.grid(row=7, column=0)
 
 
-buttonRed = Button(root, text="Red", command=chooseColorRed)
-buttonYellow = Button(root, text="Yellow", command=chooseColorYellow)
-buttonBlue = Button(root, text="Blue", command=chooseColorBlue)
-buttonPink = Button(root, text="Pink", command=chooseColorPink)
-buttonBrown = Button(root, text="Brown", command=chooseColorBrown)
-buttonPurple = Button(root, text="Purple", command=chooseColorPurple)
-buttonOrange = Button(root, text="Orange", command=chooseColorOrange)
-buttonGreen = Button(root, text="Green", command=chooseColorGreen)
+buttonRed = Button(root, text="Red", command=chooseColorRed, fg="red")
+buttonYellow = Button(root, text="Yellow",
+                      command=chooseColorYellow, fg="yellow")
+buttonBlue = Button(root, text="Blue", command=chooseColorBlue, fg="blue")
+buttonPink = Button(root, text="Pink", command=chooseColorPink, fg="pink")
+buttonBrown = Button(root, text="Brown", command=chooseColorBrown, fg="brown")
+buttonPurple = Button(root, text="Purple",
+                      command=chooseColorPurple, fg="purple")
+buttonOrange = Button(root, text="Orange",
+                      command=chooseColorOrange, fg="orange")
+buttonGreen = Button(root, text="Green", command=chooseColorGreen, fg="green")
 buttonCleared = Button(root, text="CLEAR", command=buttonClear)
 buttonTry = Button(root, text="Try", command=tryFunc)
 
-buttonBlue.pack()
-buttonYellow.pack()
-buttonRed.pack()
-buttonPink.pack()
-buttonBrown.pack()
-buttonPurple.pack()
-buttonOrange.pack()
-buttonGreen.pack()
-buttonCleared.pack()
-buttonTry.pack()
+buttonBlue.grid(row=1, column=0)
+buttonYellow.grid(row=1, column=1)
+buttonRed.grid(row=1, column=2)
+buttonPink.grid(row=1, column=3)
+buttonBrown.grid(row=1, column=4)
+buttonPurple.grid(row=1, column=5)
+buttonOrange.grid(row=1, column=6)
+buttonGreen.grid(row=1, column=7)
+buttonCleared.grid(row=2, column=3)
+buttonTry.grid(row=2, column=4)
 
 # guessLabel = Label(root, text=guess)
 # guessLabel.pack()
