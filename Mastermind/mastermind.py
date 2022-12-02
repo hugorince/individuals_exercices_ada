@@ -83,8 +83,8 @@ def continueOrStop(arr, arr2):
 list3 = randomGuess(listAll)
 print(list3)
 
-myLabel = Label(root, text="Welcome to MASTERMIND")
-myLabel.grid(row=0, column=4)
+myLabel = Label(root, text="MASTERMIND")
+myLabel.grid(row=0, column=5)
 
 
 def chooseColorRed():
@@ -196,16 +196,16 @@ buttonGreen = Button(root, text="Green", command=chooseColorGreen, fg="green")
 buttonCleared = Button(root, text="CLEAR", command=buttonClear)
 buttonTry = Button(root, text="Try", command=tryFunc)
 
-buttonBlue.grid(row=1, column=0)
-buttonYellow.grid(row=1, column=1)
-buttonRed.grid(row=1, column=2)
-buttonPink.grid(row=1, column=3)
-buttonBrown.grid(row=1, column=4)
-buttonPurple.grid(row=1, column=5)
-buttonOrange.grid(row=1, column=6)
-buttonGreen.grid(row=1, column=7)
-buttonCleared.grid(row=2, column=3)
-buttonTry.grid(row=2, column=4)
+buttonBlue.grid(row=1, column=1)
+buttonYellow.grid(row=1, column=2)
+buttonRed.grid(row=1, column=3)
+buttonPink.grid(row=1, column=4)
+buttonBrown.grid(row=1, column=5)
+buttonPurple.grid(row=1, column=6)
+buttonOrange.grid(row=1, column=7)
+buttonGreen.grid(row=1, column=8)
+buttonCleared.grid(row=2, column=4)
+buttonTry.grid(row=2, column=5)
 
 # guessLabel = Label(root, text=guess)
 # guessLabel.pack()
