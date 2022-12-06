@@ -60,7 +60,6 @@ def answer(arr, arr2):
 
 
 guess = []
-
 counter_list = []
 
 
