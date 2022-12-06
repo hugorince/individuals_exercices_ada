@@ -4,7 +4,7 @@ from tkinter import *
 root = Tk()
 
 
-list1 = ['green', 'yellow', 'yellow', 'purple']
+list1 = ['blue', 'blue', 'yellow', 'purple']
 list2 = ['blue', 'blue', 'yellow', 'green']
 listAll = ['Red', 'Blue', 'Yellow', 'Purple',
            'Green', 'Orange', 'Brown', 'Pink']
@@ -20,22 +20,17 @@ def checkIfCorrectAmount(arr):
 
 
 def checkIfIsInList(arr):
-    if arr and all(elem in ('red', 'blue', 'yellow', 'purple', 'green', 'orange', 'brown', 'pink') for elem in arr):
+    if arr and all(elem in listAll for elem in arr):
         return True
 
 
 def elementsCheck(arr):
-    if checkIfCorrectAmount(arr) == True and checkIfIsInList(arr) == True:
+    if checkIfCorrectAmount(arr) and checkIfIsInList(arr):
         return True
-
-# elementsCheck(list1)
 
 
 def win(arr, arr2):
-    if arr == arr2:
-        return True
-
-# win(list2, list2)
+    return arr == arr2
 
 
 def rightSpot(arr, arr2):
@@ -44,8 +39,7 @@ def rightSpot(arr, arr2):
 
 
 def wrongSpot(arr, arr2):
-    # print(len((list(set(arr).intersection(arr2)))) -
-    #       (sum(a == b for a, b in zip(arr, arr2))))
+
     return (len((list(set(arr).intersection(arr2)))) -
             sum(a == b for a, b in zip(arr, arr2)))
 
@@ -55,36 +49,28 @@ def answer(arr, arr2):
     # return rightSpot(arr, arr2), wrongSpot(arr, arr2)
 
 
+print(rightSpot(list1, list2))
+
 guess = []
+counter = 0
 
 
 def continueOrStop(arr, arr2):
-    if win(arr, arr2) == True:
+    if win(arr, arr2):
         print('Bravo!')
         resultLabel = Label(root, text='You WOn!!')
         resultLabel.grid(row=7, column=4)
 
     else:
         # print('Try Again')
-        resultLabel = Label(root, text=answer(arr, arr2))
-        resultLabel.grid(row=7, column=4)
-        guess.clear()
+        if counter < 13:
+            resultLabel = Label(root, text=answer(arr, arr2))
+            resultLabel.grid(row=7, column=4)
+            guess.clear()
 
-
-# checkIfIsInList(list1)
-# checkIfIsInList(['blue', 'blue', 'blue', 'blue'])
-# continueOrStop(list2, list2)
-# rightSpot(list2, list1)
-# wrongSpot(list1, list2)
-# answer(list1, list2)
-
-# continueOrStop(list1, list2)
 
 list3 = randomGuess(listAll)
 print(list3)
-
-myLabel = Label(root, text="MASTERMIND")
-myLabel.grid(row=0, column=5)
 
 
 def chooseColorRed():
@@ -180,6 +166,7 @@ def buttonClear():
 def tryFunc():
     hintLabel = Label(root, text=continueOrStop(guess, list3))
     hintLabel.grid(row=7, column=0)
+    counter + 1
 
 
 buttonRed = Button(root, text="Red", command=chooseColorRed, fg="red")
@@ -196,6 +183,9 @@ buttonGreen = Button(root, text="Green", command=chooseColorGreen, fg="green")
 buttonCleared = Button(root, text="CLEAR", command=buttonClear)
 buttonTry = Button(root, text="Try", command=tryFunc)
 
+title = Label(root, text="MASTERMIND")
+title.grid(row=0, column=5)
+
 buttonBlue.grid(row=1, column=1)
 buttonYellow.grid(row=1, column=2)
 buttonRed.grid(row=1, column=3)
@@ -206,9 +196,5 @@ buttonOrange.grid(row=1, column=7)
 buttonGreen.grid(row=1, column=8)
 buttonCleared.grid(row=2, column=4)
 buttonTry.grid(row=2, column=5)
-
-# guessLabel = Label(root, text=guess)
-# guessLabel.pack()
-
 
 root.mainloop()
