@@ -34,7 +34,6 @@ def win(arr, arr2):
 
 
 def rightSpot(arr, arr2):
-    # print(sum(a == b for a, b in zip(arr, arr2)))
     return sum(a == b for a, b in zip(arr, arr2))
 
 
