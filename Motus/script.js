@@ -12,27 +12,28 @@ function tryWord(word, base) {
         let arrayBase = base.split('');
         let arrayWord = word.split('');
         
-        for (let i = 0; i < arrayBase.length-1; i++) {
-            if (arrayBase[i] === arrayWord[i]) {
-                wellPlaced.push(arrayWord[i]);
-                }
-            if (arrayBase.includes(arrayWord[i]) && arrayBase[i] != arrayWord[i]){
-                missPlaced.push(arrayWord[i])
-            }	
-        }
-        
         for (const char of arrayWord) {
             if (arrayBase.includes(char) === false) {
                 notInWord.push(char)
             }
-           
+        }
+
+        for (let i = 0; i < arrayBase.length; i++) {
+            if (arrayBase[i] === arrayWord[i]) {
+                wellPlaced.push(arrayWord[i])
+                arrayBase.splice(i, 1)
+                console.log(arrayBase)
+                }
+            if (arrayBase.includes(arrayWord[i]) && arrayBase[i] !== arrayWord[i]){
+                missPlaced.push(arrayWord[i])
+            }	
         }
         return { wellPlaced: wellPlaced, missPlaced: missPlaced, notInWord: notInWord }
   }
 }
 
 function guess() {
-	let base = 'coucou'
+	let base = 'manon'
 	let word = document.getElementById("word").value
 	let result = tryWord(word, base)
     
