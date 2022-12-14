@@ -26,14 +26,6 @@ const isValidDate = (date) => {
 }
 console.log(isValidDate("31/10/2001"))
 
-// const isPalindrome = (date) => {
-//     let arr = date.split('')
-//     //console.log(arr)
-//     if (arr[0] === arr[9] && arr[1] === arr[8] && arr[3] === arr[7] && arr[4] === arr[6]) {
-//         return true
-//     }
-//     else return false
-// }
 const isPalindrome = (string) => {
     return string == string.split('').reverse().join('')
 }
@@ -43,8 +35,9 @@ const getNextDays = (n) => {
     let date = new Date()
     date.setDate(n)
     return date.toLocaleDateString('fr-FR')
+
 }
-console.log(getNextDays(1))
+console.log(getNextDays(32))
 
 
 const isDatePalindrome = (date) => {
