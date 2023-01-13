@@ -1,0 +1,14 @@
+.container{
+    width: 20rem;
+}
+
+.col-sm{
+    display: flex;
+    flex-direction: column;
+}
+
+.result{
+    border-color: black;
+    border:1px solid black;
+    height: 3rem;
+}

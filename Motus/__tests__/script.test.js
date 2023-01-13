@@ -10,7 +10,7 @@ describe('Motus', () => {
     // });
 
     it('should return true', () => {
-        expect(script.tryWord('coucou', 'cocu')).toEqual({wellPlaced: ['c', 'o'], missPlaced: ['u'], notInWord: []})
+        expect(script.tryWord('coucou', 'cocu')).toEqual({wellPlaced: ['c', 'o'], missPlaced: ['u', 'c'], notInWord: []})
     });
 
     it('should return true', () => {

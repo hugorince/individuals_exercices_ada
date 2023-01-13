@@ -59,4 +59,4 @@ const getNextPalindromes = (x) => {
     }
     return result
 }
-console.log(getNextPalindromes(8))
+console.log(getNextPalindromes(20))
