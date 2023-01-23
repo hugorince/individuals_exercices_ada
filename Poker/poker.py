@@ -41,7 +41,6 @@ def deal(n, dek):
     for i in range(n):
         hand.append(dek[i])
         dek.remove(dek[i])
-        print('coucou')
     return hand
 
 
@@ -149,7 +148,8 @@ deck_from_objects = create_deck(cards_objects)
 hand_obj1 = deal(2, deck_from_objects)
 hand_obj2 = deal(2, deck_from_objects)
 flop_obj = flop(deck_from_objects)
-print(flop_obj)
+for card in flop_obj:
+    print(card.value, card.color)
 
 
 def showdown(hand, flop):
