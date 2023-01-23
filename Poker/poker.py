@@ -158,6 +158,12 @@ def showdown(hand, flop):
     coeur = []
     carreau = []
     trefle = []
+    num = []
+    onepair_list = []
+    twopair = False
+    brelan = False
+    carre = False
+    couleur = False
 
     print('looking for corrsepondances')
     for card in hand:
@@ -177,15 +183,31 @@ def showdown(hand, flop):
             pique.append(card)
 
     if len(pique) > 4 or len(coeur) > 4 or len(carreau) > 4 or len(trefle) > 4:
-        print('color!')
+        couleur = True
 
     for card in total:
-        if total.count(card.num) == 2:
-            print('one pair')
-        if total.count(card.num) == 3:
-            print('brelan')
-        if total.count(card.num) == 4:
-            print('carre')
+        num.append(card.num)
+
+    for card in num:
+        if len(onepair_list) == 2 and num.count(card) == 2:
+            twopair = True
+        if num.count(card) == 4:
+            carre = True
+        if num.count(card) == 3:
+            brelan = True
+        if num.count(card) == 2:
+            onepair_list.append(card)
+
+    if carre == True:
+        print('carré!')
+    elif couleur == True:
+        print('couleur')
+    elif brelan == True:
+        print('Brelan!')
+    elif twopair == True:
+        print('two pairs!')
+    elif len(onepair_list) == 2:
+        print('one pair!')
 
 
 showdown(hand_obj1, flop_obj)
