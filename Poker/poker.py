@@ -149,7 +149,9 @@ hand_obj1 = deal(2, deck_from_objects)
 hand_obj2 = deal(2, deck_from_objects)
 flop_obj = flop(deck_from_objects)
 for card in flop_obj:
-    print(card.value, card.color)
+    print('flop =', card.value, card.color)
+print('hand = ', hand_obj1[0].value, hand_obj1[0].color,
+      hand_obj1[1].value, hand_obj1[1].color)
 
 
 def showdown(hand, flop):
@@ -198,16 +200,37 @@ def showdown(hand, flop):
         if num.count(card) == 2:
             onepair_list.append(card)
 
+    suite = set(num)
+    suite_good = list(suite)
+    suite_final = []
+
+    for i in range(len(suite_good)):
+        next = suite_good[i] + 1
+        next_card = i + 1
+        if (next_card < len(suite_good)):
+            if (next == suite_good[next_card]):
+                suite_final.append(suite_good[i])
+        if next_card >= len(suite_good):
+            break
+
     if carre == True:
-        print('carré!')
+        print('carré !')
+    elif brelan == True and len(onepair_list) == 2:
+        print('full !')
+    elif len(suite_final) > 4:
+        print('suite !')
     elif couleur == True:
-        print('couleur')
+        print('couleur !')
     elif brelan == True:
-        print('Brelan!')
+        print('Brelan !')
     elif twopair == True:
-        print('two pairs!')
+        print('two pairs !')
     elif len(onepair_list) == 2:
         print('one pair!')
 
+    print(num)
 
+
+hand_test = [p2, p3]
+flop_test = [p4, p5, p6, p9, p10]
 showdown(hand_obj1, flop_obj)
