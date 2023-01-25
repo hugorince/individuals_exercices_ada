@@ -232,5 +232,6 @@ def showdown(hand, flop):
 
 
 hand_test = [p2, p3]
-flop_test = [p4, p5, p6, p9, p10]
+flop_test = [p6, p7, p8, p9, p10]
 showdown(hand_obj1, flop_obj)
+showdown(hand_test, flop_test)
