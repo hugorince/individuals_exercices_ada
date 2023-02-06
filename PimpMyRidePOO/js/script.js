@@ -8,21 +8,38 @@ let tripsToParse = [
 class Trip {
 
     constructor(name, start, duration, price) {
-        this.name = name
-        this.start = start
-        this.duration = duration
-        this.price = price
-        this.end = start + duration
-    }
+        let _name = name
+        this.setName = (name) => {_name = name}
+        this.getName = () => {return _name}
+
+        let _start = start
+        this.setStart = (start) => {_start = start}
+        this.getStart = () => {return _start}
+
+
+        let _duration = duration
+        this.setDuration = (duration) => {_duration = duration}
+        this.getDuration = () => {return _duration}
+
+
+        let _price = price
+        this.setPrice = (price) => {_price = price}
+        this.getPrice = () => {return _price}
+
+        let total = start + duration
+        let _end = total
+        this.setEnd = (total) => {_end = total}
+        this.getEnd = () => {return _end}
+    };
     isCompatible(trip){
-        if (this.end < trip.start) {
+        if (this.getEnd() < trip.getStart()) {
             return true
         } else {
             return false
         }
-    }
+    };
     
-}
+};
 
 function parseTrips(trips) {
     let result = []
@@ -42,19 +59,24 @@ console.log(tripsObj)
 let trip1 = new Trip('hugo', 0, 0, 0)
 let trip2 = new Trip('coiucou', 1, 1, 1)
 
-console.log(trip1.isCompatible(trip2))
+trip1.setName('hugogo')
+console.log(trip1.getName())
 
 
 function findCompatibilities(trips){
     let compatibilities = []
-    for (let i = 0; i < trips.length - 1; i++){
+    for (let i in trips){
         for (let j in trips){
             if (trips[i].isCompatible(trips[j])){
                 compatibilities.push(trips[i], trips[j])
             }
         }
     }
-    return compatibilities
+    let result = []
+    for (let i in compatibilities){
+        result.push(compatibilities[i].getName())
+    } 
+    return result
 }
 console.log(findCompatibilities(tripsObj))
 
