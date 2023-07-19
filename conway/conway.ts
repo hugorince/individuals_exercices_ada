@@ -40,12 +40,12 @@ const decritChaine = (str: string) => {
 console.log(decritChaine("ab"));
 console.log(decritChaine("aabbca"));
 
-const suiteConway = (carac: string, n: number) => {
-  if ((n = 1)) {
-    return decritChaine(carac);
-  } else {
-    return suiteConway(carac, n - 1);
-  }
-};
+// const suiteConway = (carac: string, n: number) => {
+//   if ((n = 1)) {
+//     return decritChaine(carac);
+//   } else {
+//     return suiteConway(carac, n - 1);
+//   }
+// };
 
-console.log(suiteConway("a", 3));
+// console.log(suiteConway("a", 3));

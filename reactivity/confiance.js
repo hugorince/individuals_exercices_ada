@@ -17,8 +17,6 @@ const dailyQuote = () => {
 })
 }
 
-
-
 const addQuote = (name, quote) => {
     let fs = require('fs');
     quotes.quotes.push({[name]: quote});
