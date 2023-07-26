@@ -9,3 +9,13 @@ const checkPassword = (str) => {
 };
 
 console.log(checkPassword("Aaa6aaa"));
+
+const button = document.getElementById("submitButton");
+const inputPassword = document.getElementById("inputPassword");
+
+button.onclick = () => {
+  console.log(inputPassword.value);
+  checkPassword(inputPassword.value)
+    ? (inputPassword.style.borderColor = "green")
+    : (inputPassword.style.borderColor = "red");
+};
