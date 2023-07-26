@@ -1,7 +1,11 @@
-const checkLength = (str) => {
-  const length = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/s;
+const checkPassword = (str) => {
+  const regex = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])/;
 
-  length.test(str);
+  if (str.length < 7) {
+    return false;
+  }
+
+  return regex.test(str);
 };
 
-console.log(checkLength("aaaa2aAa1"));
+console.log(checkPassword("Aaa6aaa"));
