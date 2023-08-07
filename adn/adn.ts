@@ -74,30 +74,83 @@ const final = result.map((res) => (res = dico[res])).join("");
 const result2: string[] = str.match(/.{1,25}/g) ?? [];
 const result3: any = result2.map((res) => res.match(/.{1,5}/g) ?? []);
 
-const test: string[] = ["CAATC", "AGGCA", "GTTCA", "GCAGG", "ACTCA"];
-const obj: any = {
-  sequence1: {
+const objFinal: any = [];
+
+const handleOccurencies = (arr: string[]) => {
+  const obj: any = {
     A: [0, 0, 0, 0, 0],
     C: [0, 0, 0, 0, 0],
     G: [0, 0, 0, 0, 0],
     T: [0, 0, 0, 0, 0],
-  },
+  };
+  arr.map((str: string) =>
+    str
+      .split("")
+      .map((elem, i) =>
+        elem === "A"
+          ? obj.A[i]++
+          : elem === "C"
+          ? obj.C[i]++
+          : elem === "G"
+          ? obj.G[i]++
+          : elem === "T"
+          ? obj.T[i]++
+          : null
+      )
+  );
+  objFinal.push(obj);
 };
 
-test.map((str) =>
-  str
-    .split("")
-    .map((elem, i) =>
-      elem === "A"
-        ? obj.sequence1.A[i]++
-        : elem === "C"
-        ? obj.sequence1.C[i]++
-        : elem === "G"
-        ? obj.sequence1.G[i]++
-        : elem === "T"
-        ? obj.sequence1.T[i]++
-        : null
-    )
-);
+result3.map((elem: string[]) => handleOccurencies(elem));
 
-console.log(obj);
+//console.log(objFinal);
+
+const sequence = objFinal.map((elem: any) => [
+  elem.C[0] === Math.max(elem.A[0], elem.C[0], elem.G[0], elem.T[0])
+    ? "C"
+    : elem.A[0] === Math.max(elem.A[0], elem.C[0], elem.G[0], elem.T[0])
+    ? "A"
+    : elem.G[0] === Math.max(elem.A[0], elem.C[0], elem.G[0], elem.T[0])
+    ? "G"
+    : elem.T[0] === Math.max(elem.A[0], elem.C[0], elem.G[0], elem.T[0])
+    ? "T"
+    : null,
+  elem.C[1] === Math.max(elem.A[1], elem.C[1], elem.G[1], elem.T[1])
+    ? "C"
+    : elem.A[1] === Math.max(elem.A[1], elem.C[1], elem.G[1], elem.T[1])
+    ? "A"
+    : elem.G[1] === Math.max(elem.A[1], elem.C[1], elem.G[1], elem.T[1])
+    ? "G"
+    : elem.T[1] === Math.max(elem.A[1], elem.C[1], elem.G[1], elem.T[1])
+    ? "T"
+    : null,
+  elem.C[2] === Math.max(elem.A[2], elem.C[2], elem.G[2], elem.T[2])
+    ? "C"
+    : elem.A[2] === Math.max(elem.A[2], elem.C[2], elem.G[2], elem.T[2])
+    ? "A"
+    : elem.G[2] === Math.max(elem.A[2], elem.C[2], elem.G[2], elem.T[2])
+    ? "G"
+    : elem.T[2] === Math.max(elem.A[2], elem.C[2], elem.G[2], elem.T[2])
+    ? "T"
+    : null,
+  elem.C[3] === Math.max(elem.A[3], elem.C[3], elem.G[3], elem.T[3])
+    ? "C"
+    : elem.A[3] === Math.max(elem.A[3], elem.C[3], elem.G[3], elem.T[3])
+    ? "A"
+    : elem.G[3] === Math.max(elem.A[3], elem.C[3], elem.G[3], elem.T[3])
+    ? "G"
+    : elem.T[3] === Math.max(elem.A[3], elem.C[3], elem.G[3], elem.T[3])
+    ? "T"
+    : null,
+  elem.C[4] === Math.max(elem.A[4], elem.C[4], elem.G[4], elem.T[4])
+    ? "C"
+    : elem.A[4] === Math.max(elem.A[4], elem.C[4], elem.G[4], elem.T[4])
+    ? "A"
+    : elem.G[4] === Math.max(elem.A[4], elem.C[4], elem.G[4], elem.T[4])
+    ? "G"
+    : elem.T[4] === Math.max(elem.A[4], elem.C[4], elem.G[4], elem.T[4])
+    ? "T"
+    : null,
+]);
+
+console.log(sequence);
