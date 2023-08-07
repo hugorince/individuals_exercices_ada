@@ -74,4 +74,30 @@ const final = result.map((res) => (res = dico[res])).join("");
 const result2: string[] = str.match(/.{1,25}/g) ?? [];
 const result3: any = result2.map((res) => res.match(/.{1,5}/g) ?? []);
 
-console.log(result3);
+const test: string[] = ["CAATC", "AGGCA", "GTTCA", "GCAGG", "ACTCA"];
+const obj: any = {
+  sequence1: {
+    A: [0, 0, 0, 0, 0],
+    C: [0, 0, 0, 0, 0],
+    G: [0, 0, 0, 0, 0],
+    T: [0, 0, 0, 0, 0],
+  },
+};
+
+test.map((str) =>
+  str
+    .split("")
+    .map((elem, i) =>
+      elem === "A"
+        ? obj.sequence1.A[i]++
+        : elem === "C"
+        ? obj.sequence1.C[i]++
+        : elem === "G"
+        ? obj.sequence1.G[i]++
+        : elem === "T"
+        ? obj.sequence1.T[i]++
+        : null
+    )
+);
+
+console.log(obj);
