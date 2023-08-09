@@ -1,0 +1,28 @@
+.flex-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#play-button {
+  margin-top: 2rem;
+  width: auto;
+  height: auto;
+  background-color: white;
+  border-color: blue;
+  width: 10rem;
+  height: 5rem;
+  font-size: large;
+  font-weight: bold;
+}
+
+#play-button:hover {
+  background-color: blue;
+  color: white;
+}
+
+#num-remove {
+  width: 5rem;
+  height: 2rem;
+  font-size: x-large;
+}

@@ -68,8 +68,8 @@ const dico: any = {
 
 const str: string = data.data;
 
-const result: string[] = str.match(/.{1,3}/g) ?? [];
-const final = result.map((res) => (res = dico[res])).join("");
+const result1: string[] = str.match(/.{1,3}/g) ?? [];
+const final = result1.map((res) => (res = dico[res])).join("");
 
 const result2: string[] = str.match(/.{1,25}/g) ?? [];
 const result3: any = result2.map((res) => res.match(/.{1,5}/g) ?? []);
