@@ -3,9 +3,12 @@ const router = express.Router();
 
 router.post("/tri", async (req, res) => {
   try {
-    const { array } = req.body;
-    const newArray = array.sort((a, b) => a - b);
-    res.json(newArray);
+    const { array, order } = req.body;
+    order === "asc"
+      ? res.json(array.sort((a, b) => a - b))
+      : order === "desc"
+      ? res.json(array.sort((a, b) => b - a))
+      : null;
   } catch (error) {
     res.json(error);
   }
