@@ -11,7 +11,7 @@ listAll = ['Red', 'Blue', 'Yellow', 'Purple',
 
 
 def randomGuess(arr):
-    return random.choices(arr, k=4)
+    return random.choices(arr, k=len(arr))
 
 
 def checkIfCorrectAmount(arr):
